@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Clock ( Digital + Analog )</title>
+    <style>
+        body{
+            margin: 0 auto;
+			background:rgb(38, 47, 66);
+        }
+        .digi{
+            margin: 0 auto;
+        }
+            .digi h1{
+                margin: 5px 0 20px 0;
+                text-align: center;
+                font-size: 50px;
+                font-weight:bold;
+                font-family: 'Play', sans-serif;
+                font-family: 'Pushster', cursive;
+                color:#fff;
+            }
+            .digi .clock{
+                width: 1000px;
+                height: 450px;
+                padding: 50px;
+                background: #fff;
+                border-radius: 50px;
+                border: 5px solid yellowgreen;
+                box-shadow: 0px 0px 5px yellowgreen;
+                margin: 0 auto;
+            }
+            .area1{
+                width: 1000px;
+                height: 300px;
+            }
+                .area1 .show{
+                    width: 300px;
+                    height: 300px;
+                    background:linear-gradient(to top, rgb(4, 54, 95) , rgb(38, 47, 66));
+                    border-radius: 50px;
+                    text-align: center;
+                    font-size: 90px;
+                    font-weight:bold;
+                    font-family: 'Play', sans-serif;
+                    font-family: 'Pushster', cursive;
+                    color:#fff;
+                    float: left;
+                }
+                .area1 .space{
+                    width: 50px;
+                    height: 220px;
+                    padding: 80px 0 0 0;
+                    background: #fff;
+                    text-align: center;
+                    font-size: 60px;
+                    font-weight:bold;
+                    font-family: 'Play', sans-serif;
+                    font-family: 'Pushster', cursive;
+                    color: #000;
+                    float: left;
+                }
+            .area2{
+                width: 940px;
+                height: 150px;
+                margin: 20px;
+            }
+                .area2 .show{
+                    width: 150px;
+                    height: 150px;
+                    background:linear-gradient(to top, rgb(4, 54, 95) , rgb(38, 47, 66));
+                    border-radius: 50%;
+                    text-align: center;
+                    font-size: 45px;
+                    font-weight:bold;
+                    font-family: 'Play', sans-serif;
+                    font-family: 'Pushster', cursive;
+                    color:#fff;
+                    float: left;
+                    margin: 0 auto;
+                }
+                .area2 .space{
+                    width: 395px;
+                    height: 150px;
+                    float: left;
+                }
+        .analog{
+            margin: 0 auto;
+            position: relative;
+        }
+            .analog h1{
+                margin: 100px 250px 20px 200px;
+                text-align: center;
+                font-size: 50px;
+                font-weight:bold;
+                font-family: 'Play', sans-serif;
+                font-family: 'Pushster', cursive;
+                color:#fff;
+            }
+            .analog .clock{
+                width: 500px;
+                height: 500px;
+                display: grid;
+                grid-template-columns: 100px 100px 100px 100px 100px;
+                grid-template-rows: repeat(3, 1fr);
+                align-items: center;
+                justify-content: center;
+                background: #fff;
+                border-radius: 50%;
+                border: 5px solid yellowgreen;
+                box-shadow: 0px 0px 5px yellowgreen;
+                margin: 0 auto;
+                position: relative;
+            }
+            #hour{
+                position: absolute;
+                text-align: center;
+                border-radius: 15px;
+                font-size: 20px;
+                font-weight:bold;
+                font-family: 'Play', sans-serif;
+                font-family: 'Pushster', cursive;
+                width: 60px;
+                height: 60px;
+                left: 150px;
+                top: 25%;
+                color: #fff;
+                background:linear-gradient(to top, rgb(4, 54, 95) , rgb(38, 47, 66));
+            }
+            #min{
+                position: absolute;
+                text-align: center;
+                border-radius: 15px;
+                font-size: 20px;
+                font-weight:bold;
+                font-family: 'Play', sans-serif;
+                font-family: 'Pushster', cursive;
+                width: 60px;
+                height: 60px;
+                background:linear-gradient(to top, rgb(4, 54, 95) , rgb(38, 47, 66));
+                left: 220px;
+                top: 25%;
+                color: #fff;
+            }
+            #sec{
+                position: absolute;
+                text-align: center;
+                border-radius: 15px;
+                font-size: 20px;
+                font-weight:bold;
+                font-family: 'Play', sans-serif;
+                font-family: 'Pushster', cursive;
+                width: 60px;
+                height: 60px;
+                left: 290px;
+                top: 25%;
+                color: #fff;
+                background:linear-gradient(to top, rgb(4, 54, 95) , rgb(38, 47, 66));
+            }
+            .day{
+                position: absolute;
+                width: 260px;
+                height: 30px;
+                text-align: center;
+                border-radius: 20px;
+                font-size: 20px;
+                font-weight:bold;
+                font-family: 'Pushster', cursive;
+                left: 125px;
+                bottom: 35%;
+                z-index: 1;
+                color: #fff;
+            }
+            .hey{
+                position: absolute;
+                width: 260px;
+                height: 30px;
+                text-align: center;
+                border-radius: 20px;
+                font-size: 20px;
+                font-weight:bold;
+                font-family: 'Pushster', cursive;
+                background:linear-gradient(to top, rgb(4, 54, 95) , rgb(38, 47, 66));
+                left: 123px;
+                bottom: 31%;
+            }
+            .colon{
+                position: absolute;
+                font-size: 20px;
+                font-weight:bold;
+                font-family: 'Play', sans-serif;
+                font-family: 'Pushster', cursive;
+                color: #000;
+            }
+            .number{
+                font-size: 30px;
+                font-weight:bold;
+                font-family: 'Play', sans-serif;
+                font-family: 'Pushster', cursive;
+                text-align: center;
+            }
+                .one{
+                    position: absolute;
+                    top: 55px;
+                    right: 140px;
+                }
+                .two{
+                    position: absolute;
+                    top: 128px;
+                    right: 65px;
+                }
+                .three{
+                    position: absolute;
+                    right: 35px;
+                }
+                .four{
+                    position: absolute;
+                    bottom: 128px;
+                    right: 65px;
+                }
+                .five{
+                    position: absolute;
+                    bottom: 55px;
+                    right: 140px;
+                }
+                .six{
+                    position: absolute;
+                    bottom: 25px;
+                    left: 48%;
+                }
+                .seven{
+                    position: absolute;
+                    bottom: 58px;
+                    left: 140px;
+                }
+                .eight{
+                    position: absolute;
+                    bottom: 130px;
+                    left: 65px;
+                }
+                .nine{
+                    position: absolute;
+                    left: 35px;
+                }
+                .ten{
+                    position: absolute;
+                    top: 130px;
+                    left: 65px;
+                }
+                .eleven{
+                    position: absolute;
+                    top: 55px;
+                    left: 133px;
+                }
+                .twelve{
+                    position: absolute;
+                    top: 25px;
+                    left: 46.5%;
+                }
+            .hands{
+                position: absolute;
+                bottom: 50%;
+                transform-origin: bottom;
+                border-radius: 50% 50% 0 0;
+            }
+            .hour{
+                width: 10px;
+                height: 25%;
+                left: 49%;
+                background: black; 
+                z-index: 8;
+            }
+            .min{
+                width: 6px;
+                height: 35%;
+                left: 49.4%;
+                background: black;
+                z-index: 9;
+            }
+            .sec{
+                width: 2px;
+                height: 35%;
+                left: 49.9%;
+                background: red;
+                z-index: 10;
+            }
+                .sec::after{
+                    content: "";
+                    width: 3px;
+                    height: 30%;
+                    bottom: -30%;
+                    left: -1px;
+                    background-color: red;
+                    position: absolute;
+                    border-radius: 0 0 10px 10px;
+                    z-index: 10;
+                }
+            .analog .clock::after{
+                position: absolute;
+                content: "";
+                width: 25px;
+                height: 25px;
+                left: 50%;
+                top: 50%;
+                z-index: 10;
+                transform: translate(-50%,-50%);
+                border-radius: 50%;
+                background: blue;
+            }
+        @import url('https://fonts.googleapis.com/css2?family=Play&family=Pushster&display=swap');
+        .empty{
+            margin: 50px;
+        }
+    </style>
+</head>
+<body onload="getCurrentTime()">
+    <div class="digi">
+        <h1 align="center">Digital Clock</h1>
+        <div class="clock">
+            <div class="area1">
+                <div class="show">
+                    <p id="d-hour"></p>
+                </div>
+                <div class="space">
+                    :
+                </div>
+                <div class="show">
+                    <p id="d-min"></p>
+                </div>
+                <div class="space">
+                    :
+                </div>
+                <div class="show">
+                    <p id="d-sec"></p>
+                </div>
+            </div>
+            <div class="area2">
+                <div class="space">
+                </div>
+                <div class="show">
+                    <p id="ampm"></p>
+                </div>
+                <div class="space">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="analog">
+        <h1>Analog Clock</h1>
+        <div class="clock">
+            <div id="hour">
+                <p id="ad1">h</p>:
+            </div>
+            <div id="min">
+                <p id="ad2">m</p>
+            </div>
+            <div id="sec">
+                <p id="ad3">s</p>
+            </div>
+            <div class="day">
+                <p id="day"></p>
+            </div>
+            <div class="hey">
+
+            </div>
+            <div class="number one">1</div>
+            <div class="number two">2</div>
+            <div class="number three">3</div>
+            <div class="number four">4</div>
+            <div class="number five">5</div>
+            <div class="number six">6</div>
+            <div class="number seven">7</div>
+            <div class="number eight">8</div>
+            <div class="number nine">9</div>
+            <div class="number ten">10</div>
+            <div class="number eleven">11</div>
+            <div class="number twelve">12</div>
+            <div class="hands hour" id="a-hour"></div>
+            <div class="hands min" id="a-min"></div>
+            <div class="hands sec" id="a-sec"></div>
+        </div>
+    </div>
+    <div class="empty">
+
+    </div>
+    <script>
+        function getCurrentTime()
+        {
+            var today=new Date();
+            var h=today.getHours();
+            var m=today.getMinutes();
+            var s=today.getSeconds();
+            var date=today.getDate();
+            var month=today.getMonth();
+            var year=today.getFullYear();
+            var day=today.getDay();
+            var ampm;
+            
+            if(h<12)
+            {
+                ampm='A.M';
+            }
+            else{
+                ampm='P.M'
+            }
+
+            switch(day){
+                case 0:
+                    day="0"?"Sunday":"Monday";
+                    break;
+                case 1:
+                    day="6"?"Monday":"Tuesday";
+                    break;
+                case 2:
+                    day="6"?"Tuesday":"Wednesday";
+                    break;
+                case 3:
+                    day="6"?"Wednesday":"Thursday";
+                    break;
+                case 4:
+                    day="6"?"Thursday":"Friday";
+                    break;
+                case 5:
+                    day="6"?"Friday":"Saturday";
+                    break;
+                case 6:
+                    day="6"?"Saturday":"Sunday";
+                    break;
+            }
+
+            h=h>12?h-12:h;
+            h=h<10?'0'+h:h;
+            m=m<10?'0'+m:m;
+            s=s<10?'0'+s:s;
+
+            date=date<10?"0"+date:date;
+            month=month<10?"0"+month:month;
+
+            document.getElementById('d-hour').innerHTML=h;
+            document.getElementById('d-min').innerHTML=m;
+            document.getElementById('d-sec').innerHTML=s;
+            document.getElementById('ampm').innerHTML=ampm;
+
+            
+            document.getElementById('ad1').innerHTML=h;
+            document.getElementById('ad2').innerHTML=m;
+            document.getElementById('ad3').innerHTML=s;
+            document.getElementById('day').innerHTML=day+', '+date+'/ '+month+'/ '+year;
+
+            setTimeout(function(){getCurrentTime(),1000});  //1000->1sec;
+
+            hr=h*30+m/2;
+            mr=m*6+s/10;
+            sr=s*6;
+
+            document.getElementById('a-hour').style.transform = `rotate(${hr}deg)`;
+            document.getElementById('a-min').style.transform = `rotate(${mr}deg)`;
+            document.getElementById('a-sec').style.transform = `rotate(${sr}deg)`;
+        }
+    </script>
+</body>
+</html>
